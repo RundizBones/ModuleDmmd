@@ -126,6 +126,9 @@ class ModuleAdmin implements \Rdb\Modules\RdbAdmin\Interfaces\ModuleAdmin
                 'icon' => 'fas fa-table fa-fw',
                 'name' => d__('demomanagementdialog', 'Management demo'),
                 'link' => $urlBaseWithLang . '/admin/dmmd',
+                'linksCurrent' => [
+                    $urlBaseWithLang . '/admin/dmmd/*',
+                ],
             ],// 5
             // END TODO
         ];

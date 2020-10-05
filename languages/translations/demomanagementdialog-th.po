@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: demomanagementdialog\n"
+"POT-Creation-Date: 2020-10-05 18:11+0700\n"
+"PO-Revision-Date: 2020-10-05 18:11+0700\n"
+"Last-Translator: Vee W.\n"
+"Language-Team: \n"
+"Language: th_TH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: d__:2;dn__:2,3;dnp__:2c,3,4;dp__:2c,3;n__:1,2;noop__;"
+"np__:1c,2,3;p__:1c,2;esc__;esc_d__:2;esc_dn__:2,3;esc_dnp__:2c,3,4;"
+"esc_dp__:2c,3;esc_n__:1,2;esc_np__:1c,2,3;esc_p__:1c,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: Tests\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: .git\n"
+"X-Poedit-SearchPathExcluded-4: .dev-notes\n"
+
+#: Controllers/Admin/ActionsController.php:94
+msgid "Deleted successfully."
+msgstr "ลบเรียบร้อยแล้ว."
+
+#: Controllers/Admin/ActionsController.php:99
+msgid "Unable to delete."
+msgstr "ไม่สามารถลบรายการได้."
+
+#: Controllers/Admin/AddController.php:76
+#: Controllers/Admin/EditController.php:78
+msgid "Please enter the title."
+msgstr "โปรดกรอกไตเติ้ล."
+
+#: Controllers/Admin/AddController.php:99
+msgid "Added successfully."
+msgstr "เพิ่มเรียบร้อยแล้ว."
+
+#: Controllers/Admin/AddController.php:108
+msgid "Unable to add new item."
+msgstr "ไม่สามารถเพิ่มรายการได้."
+
+#: Controllers/Admin/AddController.php:162
+msgid "Add an item"
+msgstr "เพิ่มรายการ"
+
+#: Controllers/Admin/AddController.php:178
+#: Controllers/Admin/EditController.php:179 ModuleData/ModuleAdmin.php:80
+msgid "List items"
+msgstr "แสดงรายการ"
+
+#: Controllers/Admin/EditController.php:99
+msgid "Updated successfully."
+msgstr "ปรับปรุงเรียบร้อยแล้ว."
+
+#: Controllers/Admin/EditController.php:107
+msgid "Unable to update."
+msgstr "ไม่สามารถปรับปรุงรายการได้."
+
+#: Controllers/Admin/EditController.php:162
+msgid "Edit an item"
+msgstr "แก้ไขรายการ"
+
+#: Controllers/Admin/IndexController.php:67
+msgid "Not found selected item."
+msgstr "ไม่พบรายการที่เลือก."
+
+#: Controllers/Admin/IndexController.php:147 ModuleData/ModuleAdmin.php:72
+msgid "Demo management dialog"
+msgstr "ตัวอย่างหน้าจัดการพร้อมไดอะล็อก"
+
+#: Controllers/Admin/IndexController.php:205
+msgid "Please select at least one item."
+msgstr "โปรดเลือกอย่างน้อยหนึ่งรายการ."
+
+#: ModuleData/ModuleAdmin.php:77
+msgid "Add"
+msgstr "เพิ่ม"
+
+#: ModuleData/ModuleAdmin.php:78
+msgid "Delete"
+msgstr "ลบ"
+
+#: ModuleData/ModuleAdmin.php:79
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: ModuleData/ModuleAdmin.php:127
+msgid "Management demo"
+msgstr "ตัวอย่างหน้าจัดการ"
+
+#: Views/Admin/Demo/add_v.php:31 Views/Admin/Demo/edit_v.php:32
+#: Views/Admin/Demo/index_v.php:22 Views/Admin/Demo/index_v.php:30
+msgid "Title"
+msgstr "ไตเติ้ล"
+
+#~ msgid "Listing"
+#~ msgstr "แสดงรายการ"
+
+#~ msgid "Are you sure to delete?"
+#~ msgstr "คุณแน่ใจหรือไม่ที่จะลบ?"
+
+#~ msgid "Please select an action."
+#~ msgstr "โปรดเลือกการกระทำ."

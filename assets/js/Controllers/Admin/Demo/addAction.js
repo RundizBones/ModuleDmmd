@@ -58,7 +58,6 @@ class DmmdAddController {
                 event.target && 
                 '#' + event.target.id === thisClass.formIDSelector
             ) {
-
                 event.preventDefault();
 
                 let thisForm = event.target;

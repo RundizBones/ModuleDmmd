@@ -129,7 +129,6 @@ class DmmdEditController {
                 event.target.getAttribute('id') && // @TODO[dmmd]: change to event.target.id if your form don't have input name `id`.
                 '#' + event.target.getAttribute('id') === thisClass.formIDSelector
             ) {
-
                 event.preventDefault();
 
                 let thisForm = event.target;

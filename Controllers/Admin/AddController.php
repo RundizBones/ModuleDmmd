@@ -214,7 +214,6 @@ class AddController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCon
                     'csrfKeyPair' => $output['csrfKeyPair'],
                 ], $this->getDmmdUrlsMethod())
             );
-            // END TODO
 
             // include html functions file to use `renderBreadcrumbHtml()` function.
             include_once MODULE_PATH . '/RdbAdmin/Helpers/HTMLFunctions.php';

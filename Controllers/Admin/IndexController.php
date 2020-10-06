@@ -201,7 +201,6 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
                     'txtPleaseSelectAtLeastOne' => d__('demomanagementdialog', 'Please select at least one item.'),
                 ], $this->getDmmdUrlsMethod())
             );
-            // END TODO
 
             $output['Assets'] = $Assets;
             $output['Modules'] = $this->Modules;

@@ -21,7 +21,7 @@ class DmmdEditController {
             !RdbaCommon.isset(() => options.formIDSelector) || 
             (RdbaCommon.isset(() => options.formIDSelector) && _.isEmpty(options.formIDSelector))
         ) {
-            options.formIDSelector = '#demomanagementdialog-edit-form'
+            options.formIDSelector = '#demomanagementdialog-edit-form';
         }
         this.formIDSelector = options.formIDSelector;
 
@@ -29,7 +29,7 @@ class DmmdEditController {
             !RdbaCommon.isset(() => options.dialogIDSelector) || 
             (RdbaCommon.isset(() => options.dialogIDSelector) && _.isEmpty(options.dialogIDSelector))
         ) {
-            options.dialogIDSelector = '#demomanagementdialog-editing-dialog'
+            options.dialogIDSelector = '#demomanagementdialog-editing-dialog';
         }
         this.dialogIDSelector = options.dialogIDSelector;
 

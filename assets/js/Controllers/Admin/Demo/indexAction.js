@@ -1,7 +1,5 @@
 /**
  * Demo management dialog JS for its controller.
- * 
- * @TODO[dmmd]: rename this class to yours.
  */
 
 
@@ -38,12 +36,12 @@ class DmmdIndexController extends RdbaDatatables {
         .done(function() {
             let dataTable = $(thisClass.datatableIDSelector).DataTable({
                 'ajax': {
-                    'url': DmmdIndexObject.getItemsRESTUrl,// @TODO[dmmd]: change to your js object.
-                    'method': DmmdIndexObject.getItemsRESTMethod,// @TODO[dmmd]: change to your js object.
+                    'url': DmmdIndexObject.getItemsRESTUrl,
+                    'method': DmmdIndexObject.getItemsRESTMethod,
                     'dataSrc': 'listItems'// change array key of data source. see https://datatables.net/examples/ajax/custom_data_property.html
                 },
                 'autoWidth': false,// don't set style="width: xxx;" in the table cell.
-                // @TODO[dmmd]: write your own `columnDefs`.
+                // @TODO[dmmd]: write your own code for `columnDefs`.
                 'columnDefs': [
                     {
                         'orderable': false,// make checkbox column not sortable.
@@ -80,7 +78,7 @@ class DmmdIndexController extends RdbaDatatables {
                         'render': function(data, type, row, meta) {
                             let source = document.getElementById('rdba-datatables-row-actions').innerHTML;
                             let template = Handlebars.compile(source);
-                            row.DmmdIndexObject = DmmdIndexObject;// @TODO[dmmd]: change to your js object.
+                            row.DmmdIndexObject = DmmdIndexObject;
                             let html = data + template(row);
                             return html;
                         }
@@ -114,7 +112,7 @@ class DmmdIndexController extends RdbaDatatables {
                 if (addedCustomResultControls === false) {
                     // if it was not added custom result controls yet.
                     // set additional data.
-                    json.DmmdIndexObject = DmmdIndexObject;// @TODO[dmmd]: change to your js object.
+                    json.DmmdIndexObject = DmmdIndexObject;
                     // add search controls.
                     thisClass.addCustomResultControls(json);
                     // add bulk actions controls.
@@ -131,7 +129,7 @@ class DmmdIndexController extends RdbaDatatables {
 
                 if (json) {
                     if (typeof(json.csrfKeyPair) !== 'undefined') {
-                        DmmdIndexObject.csrfKeyPair = json.csrfKeyPair;// @TODO[dmmd]: change to your js object.
+                        DmmdIndexObject.csrfKeyPair = json.csrfKeyPair;
                     }
                 }
             })// datatables on xhr complete.
@@ -176,7 +174,7 @@ class DmmdIndexController extends RdbaDatatables {
                 });
                 if (itemIdsArray.length <= 0) {
                     RDTAAlertDialog.alert({
-                        'text': DmmdIndexObject.txtPleaseSelectAtLeastOne,// @TODO[dmmd]: change to your js object.
+                        'text': DmmdIndexObject.txtPleaseSelectAtLeastOne,
                         'type': 'error'
                     });
                     formValidated = false;
@@ -185,11 +183,11 @@ class DmmdIndexController extends RdbaDatatables {
                 }
 
                 // validate selected action.
-                let selectAction = thisForm.querySelector('#demomanagementdialog-list-actions');// @TODO[dmmd]: change to matched in your views file.
+                let selectAction = thisForm.querySelector('#demomanagementdialog-list-actions');
                 if (formValidated === true) {
                     if (selectAction && selectAction.value === '') {
                         RDTAAlertDialog.alert({
-                            'text': DmmdIndexObject.txtPleaseSelectAction,// @TODO[dmmd]: change to your js object.
+                            'text': DmmdIndexObject.txtPleaseSelectAction,
                             'type': 'error'
                         });
                         formValidated = false;
@@ -200,7 +198,7 @@ class DmmdIndexController extends RdbaDatatables {
 
                 if (formValidated === true) {
                     // if form validated.
-                    thisClass.listenFormSubmitConfirmDelete(itemIdsArray, selectAction.value);// @TODO[dmmd]: you may write your own delete if you need more functional.
+                    thisClass.listenFormSubmitConfirmDelete(itemIdsArray, selectAction.value);// @TODO[dmmd]: write your own code for delete process.
                 }
             }
         });
@@ -210,7 +208,7 @@ class DmmdIndexController extends RdbaDatatables {
     /**
      * Ask for confirm delete.
      * 
-     * @TODO[dmmd]: you may write your own delete if you need more functional.
+     * @TODO[dmmd]: write your own code for delete process.
      * @private This method was called from `listenFormSubmit()` method.
      * @param {array} ids
      * @param {string} action
@@ -244,8 +242,8 @@ class DmmdIndexController extends RdbaDatatables {
                 submitBtn.disabled = true;
 
                 RdbaCommon.XHR({
-                    'url': DmmdIndexObject.deleteItemRESTUrlBase + '/' + ids.join(','),// @TODO[dmmd]: change to your js object.
-                    'method': DmmdIndexObject.deleteItemRESTMethod,// @TODO[dmmd]: change to your js object.
+                    'url': DmmdIndexObject.deleteItemRESTUrlBase + '/' + ids.join(','),
+                    'method': DmmdIndexObject.deleteItemRESTMethod,
                     'contentType': 'application/x-www-form-urlencoded;charset=UTF-8',
                     'data': new URLSearchParams(_.toArray(formData)).toString(),
                     'dataType': 'json'
@@ -262,7 +260,7 @@ class DmmdIndexController extends RdbaDatatables {
                     }
 
                     if (typeof(response) !== 'undefined' && typeof(response.csrfKeyPair) !== 'undefined') {
-                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;// @TODO[dmmd]: change to your js object.
+                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;
                     }
 
                     return Promise.reject(responseObject);
@@ -281,7 +279,7 @@ class DmmdIndexController extends RdbaDatatables {
                     }
 
                     if (typeof(response) !== 'undefined' && typeof(response.csrfKeyPair) !== 'undefined') {
-                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;// @TODO[dmmd]: change to your js object.
+                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;
                     }
 
                     return Promise.resolve(responseObject);
@@ -326,10 +324,10 @@ class DmmdIndexController extends RdbaDatatables {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    let indexController = new DmmdIndexController();// @TODO[dmmd]: change the class name to matched your class in this file.
+    let indexController = new DmmdIndexController();
     let rdbaXhrDialog = new RdbaXhrDialog({
-        'dialogIDSelector': '#demomanagementdialog-editing-dialog',// @TODO[dmmd]: change the id to matched in your views file.
-        'dialogInitEvent': 'demomanagementdialog.editing.init',// @TODO[dmmd]: rename to your desired dialog event.
+        'dialogIDSelector': '#demomanagementdialog-editing-dialog',
+        'dialogInitEvent': 'demomanagementdialog.editing.init',
         'xhrLinksSelector': '.rdba-listpage-addnew, .rdba-listpage-edit'
     });
     indexController.setRdbaXhrDialogObject(rdbaXhrDialog);

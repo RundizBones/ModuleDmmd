@@ -20,9 +20,6 @@ class ActionsController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBas
     use \Rdb\Modules\RdbAdmin\Controllers\Admin\UI\Traits\CommonDataTrait;
 
 
-    /**
-     * @TODO[dmmd]: change trait name to matched yours.
-     */
     use Traits\DmmdTrait;
 
 
@@ -34,7 +31,7 @@ class ActionsController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBas
     public function doDeleteAction(): string
     {
         // processing part ----------------------------------------------------------------------------------------------------
-        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['delete']);// @TODO[dmmd]: change module and permissions to your own.
+        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['delete']);// @TODO[dmmd]: change permissions to your own.
 
         if (session_id() === '') {
             session_start();
@@ -54,7 +51,7 @@ class ActionsController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBas
         $output['configDb'] = $this->getConfigDb();
         list($csrfName, $csrfValue) = $Csrf->getTokenNameValueKey(true);
 
-        $output = array_merge($output, $this->getDmmdUrlsMethod());// @TODO[dmmd]: change method name to matched in your trait.
+        $output = array_merge($output, $this->getDmmdUrlsMethod());
 
         // make delete data into $_DELETE variable.
         $this->Input->delete('');
@@ -74,7 +71,7 @@ class ActionsController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBas
             // if validated token to prevent CSRF.
             unset($_DELETE[$csrfName], $_DELETE[$csrfValue]);
 
-            // @TODO[dmmd]: write your own delete data code.
+            // @TODO[dmmd]: write your own code to delete data here.
             $idArray = $this->Input->delete('id', []);
             if (is_array($idArray)) {
                 $DmmdDb = new \Rdb\Modules\DemoManagementDialog\Models\DmmdDb($this->Container);

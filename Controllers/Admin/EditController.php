@@ -20,16 +20,13 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
     use \Rdb\Modules\RdbAdmin\Controllers\Admin\UI\Traits\CommonDataTrait;
 
 
-    /**
-     * @TODO[dmmd]: change trait name to matched yours.
-     */
     use Traits\DmmdTrait;
 
 
     public function doUpdateAction(string $id): string
     {
         // processing part ----------------------------------------------------------------------------------------------------
-        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['edit']);// @TODO[dmmd]: change module and permissions to your own.
+        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['edit']);// @TODO[dmmd]: change permissions to your own.
 
         if (session_id() === '') {
             session_start();
@@ -49,7 +46,7 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
         $output['configDb'] = $this->getConfigDb();
         list($csrfName, $csrfValue) = $Csrf->getTokenNameValueKey(true);
 
-        $output = array_merge($output, $this->getDmmdUrlsMethod());// @TODO[dmmd]: change method name to matched in your trait.
+        $output = array_merge($output, $this->getDmmdUrlsMethod());
 
         // make patch data into $_PATCH variable.
         $this->Input->patch('');
@@ -84,7 +81,7 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
             // end validate the form. --------------------------------------------------------------------
 
             if (isset($formValidated) && $formValidated === true) {
-                // @TODO[dmmd]: write your own add (insert) process here.
+                // @TODO[dmmd]: write your own code to update data here.
                 $DmmdDb = new \Rdb\Modules\DemoManagementDialog\Models\DmmdDb($this->Container);
                 try {
                     $saveResult = $DmmdDb->update($data, ['id' => $id]);
@@ -141,7 +138,7 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
     public function indexAction(string $id): string
     {
         // processing part ----------------------------------------------------------------------------------------------------
-        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['edit']);// @TODO[dmmd]: change module and permissions to your own.
+        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['edit']);// @TODO[dmmd]: change permissions to your own.
 
         if (session_id() === '') {
             session_start();
@@ -164,7 +161,7 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
         $output['pageHtmlClasses'] = $this->getPageHtmlClasses();
 
         $output['id'] = (int) $id;// @TODO[dmmd]: write your own code. This is for demonstration only.
-        $output = array_merge($output, $this->getDmmdUrlsMethod());// @TODO[dmmd]: change method name to matched in your trait.
+        $output = array_merge($output, $this->getDmmdUrlsMethod());
         $output = array_merge($output, $Csrf->createToken());
         unset($Csrf);
 
@@ -207,17 +204,16 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
             $this->setCssAssets($Assets, $rdbAdminAssets);
             $this->setJsAssetsAndObject($Assets, $rdbAdminAssets);
 
-            // @TODO[dmmd]: change the call to asset handle below to matched your handles.
             $Assets->addMultipleAssets('css', ['datatables', 'rdbaCommonListDataPage'], $Assets->mergeAssetsData('css', $moduleAssetsData, $rdbAdminAssets));
             $Assets->addMultipleAssets('js', ['dmmdEdit', 'rdbaHistoryState'], $Assets->mergeAssetsData('js', $moduleAssetsData, $rdbAdminAssets));
             $Assets->addJsObject(
                 'dmmdEdit',
-                'DmmdIndexObject',// @TODO[dmmd]: rename js object here and in everywhere else such as other controllers, views, JS files.
+                'DmmdIndexObject',
                 array_merge([
                     'csrfName' => $output['csrfName'],
                     'csrfValue' => $output['csrfValue'],
                     'csrfKeyPair' => $output['csrfKeyPair'],
-                ], $this->getDmmdUrlsMethod())// @TODO[dmmd]: change method name to matched in your trait.
+                ], $this->getDmmdUrlsMethod())
             );
             // END TODO
 

@@ -2,7 +2,6 @@
 /**
  * Demo management dialog trait.
  * 
- * @TODO[dmmd]: change the trait file name and the trait name (including name space) to be yours.
  * @license http://opensource.org/licenses/MIT MIT
  */
 
@@ -20,7 +19,6 @@ trait DmmdTrait
     /**
      * Get URLs and methods for management controller.
      * 
-     * @TODO[dmmd]: change this method name and also change in the controllers who called it.
      * @TODO[dmmd]: change URLs, methods to match your routes.
      * @return array
      */

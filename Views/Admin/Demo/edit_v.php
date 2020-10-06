@@ -7,7 +7,6 @@
                         <h1 class="rdba-page-content-header"><?php echo $pageTitle; ?></h1>
 
                         <form id="demomanagementdialog-edit-form" class="rd-form horizontal rdba-edit-form" method="<?php echo (isset($editItemRESTMethod) ? strtolower($editItemRESTMethod) : 'post'); ?>" action="<?php if (isset($editItemRESTUrlBase)) {echo htmlspecialchars($editItemRESTUrlBase, ENT_QUOTES);} ?>">
-                            <!-- //@TODO[dmmd]: change form id value and also change in JS file. -->
                             <!-- //@TODO[dmmd]: change method and action PHP variables to matched in the trait. -->
 
                             <?php 
@@ -27,7 +26,7 @@
                             <input id="id" type="hidden" name="id" value="<?php echo ($id ?? ''); ?>">
                             <div class="form-result-placeholder"></div>
 
-                            <!-- //@TODO[dmmd]: create your own form -->
+                            <!-- //@TODO[dmmd]: write your own form -->
                             <div class="form-group">
                                 <label class="control-label" for="user_login"><?php echo d__('demomanagementdialog', 'Title'); ?> <em>*</em></label>
                                 <div class="control-wrapper">

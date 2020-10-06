@@ -1,7 +1,5 @@
 /**
  * Demo management dialog - add page JS for its controller.
- * 
- * @TODO[dmmd]: rename this class to yours.
  */
 
 
@@ -24,7 +22,7 @@ class DmmdAddController {
             !RdbaCommon.isset(() => options.formIDSelector) || 
             (RdbaCommon.isset(() => options.formIDSelector) && _.isEmpty(options.formIDSelector))
         ) {
-            options.formIDSelector = '#demomanagementdialog-add-form'// @TODO[dmmd]: change the form id to matched in your views file.
+            options.formIDSelector = '#demomanagementdialog-add-form'
         }
         this.formIDSelector = options.formIDSelector;
 
@@ -32,7 +30,7 @@ class DmmdAddController {
             !RdbaCommon.isset(() => options.dialogIDSelector) || 
             (RdbaCommon.isset(() => options.dialogIDSelector) && _.isEmpty(options.dialogIDSelector))
         ) {
-            options.dialogIDSelector = '#demomanagementdialog-editing-dialog'// @TODO[dmmd]: change the dialog id to matched in your views file.
+            options.dialogIDSelector = '#demomanagementdialog-editing-dialog'
         }
         this.dialogIDSelector = options.dialogIDSelector;
 
@@ -40,7 +38,7 @@ class DmmdAddController {
             !RdbaCommon.isset(() => options.datatableIDSelector) || 
             (RdbaCommon.isset(() => options.datatableIDSelector) && _.isEmpty(options.datatableIDSelector))
         ) {
-            options.datatableIDSelector = '#dmmdListItemsTable';// @TODO[dmmd]: change the data table id to matched in your views file.
+            options.datatableIDSelector = '#dmmdListItemsTable';
         }
         this.datatableIDSelector = options.datatableIDSelector;
     }// constructor
@@ -67,9 +65,9 @@ class DmmdAddController {
                 let submitBtn = thisForm.querySelector('button[type="submit"]');
 
                 // set csrf again to prevent firefox form cached.
-                if (!DmmdIndexObject.isInDataTablesPage) {// @TODO[dmmd]: change to your js object.
-                    thisForm.querySelector('#rdba-form-csrf-name').value = DmmdIndexObject.csrfKeyPair[DmmdIndexObject.csrfName];// @TODO[dmmd]: change to your js object.
-                    thisForm.querySelector('#rdba-form-csrf-value').value = DmmdIndexObject.csrfKeyPair[DmmdIndexObject.csrfValue];// @TODO[dmmd]: change to your js object.
+                if (!DmmdIndexObject.isInDataTablesPage) {
+                    thisForm.querySelector('#rdba-form-csrf-name').value = DmmdIndexObject.csrfKeyPair[DmmdIndexObject.csrfName];
+                    thisForm.querySelector('#rdba-form-csrf-value').value = DmmdIndexObject.csrfKeyPair[DmmdIndexObject.csrfValue];
                 }
 
                 // reset form result placeholder
@@ -82,8 +80,8 @@ class DmmdAddController {
                 let formData = new FormData(thisForm);
 
                 RdbaCommon.XHR({
-                    'url': DmmdIndexObject.addItemRESTUrl,// @TODO[dmmd]: change to your js object.
-                    'method': DmmdIndexObject.addItemRESTMethod,// @TODO[dmmd]: change to your js object.
+                    'url': DmmdIndexObject.addItemRESTUrl,
+                    'method': DmmdIndexObject.addItemRESTMethod,
                     'contentType': 'application/x-www-form-urlencoded;charset=UTF-8',
                     'data': new URLSearchParams(_.toArray(formData)).toString(),
                     'dataType': 'json'
@@ -99,7 +97,7 @@ class DmmdAddController {
                     }
 
                     if (typeof(response) !== 'undefined' && typeof(response.csrfKeyPair) !== 'undefined') {
-                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;// @TODO[dmmd]: change to your js object.
+                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;
                         if (typeof(response.csrfName) !== 'undefined' && typeof(response.csrfValue) !== 'undefined') {
                             thisForm.querySelector('#rdba-form-csrf-name').value = response.csrfKeyPair[response.csrfName];
                             thisForm.querySelector('#rdba-form-csrf-value').value = response.csrfKeyPair[response.csrfValue];
@@ -114,7 +112,6 @@ class DmmdAddController {
 
                     if (response.redirectBack) {
                         if (DmmdIndexObject && DmmdIndexObject.isInDataTablesPage && DmmdIndexObject.isInDataTablesPage === true) {
-                            // @TODO[dmmd]: change `DmmdIndexObject` to your js object.
                             // this is opening in dialog, close the dialog and reload page.
                             document.querySelector(thisClass.dialogIDSelector + ' [data-dismiss="dialog"]').click();
                             // reload datatable.
@@ -131,7 +128,7 @@ class DmmdAddController {
                     }
 
                     if (typeof(response) !== 'undefined' && typeof(response.csrfKeyPair) !== 'undefined') {
-                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;// @TODO[dmmd]: change to your js object.
+                        DmmdIndexObject.csrfKeyPair = response.csrfKeyPair;
                         if (typeof(response.csrfName) !== 'undefined' && typeof(response.csrfValue) !== 'undefined') {
                             thisForm.querySelector('#rdba-form-csrf-name').value = response.csrfKeyPair[response.csrfName];
                             thisForm.querySelector('#rdba-form-csrf-value').value = response.csrfKeyPair[response.csrfValue];
@@ -177,8 +174,8 @@ if (document.readyState !== 'loading') {
     // must use together with `document.addEventListener('DOMContentLoaded')`
     // because this condition will be working on js loaded via ajax,
     // but 'DOMContentLoaded' will be working on load the full page.
-    DmmdAddController.staticInit();// @TODO[dmmd]: change the class name to matched your class in this file.
+    DmmdAddController.staticInit();
 }
 document.addEventListener('DOMContentLoaded', function() {
-    DmmdAddController.staticInit();// @TODO[dmmd]: change the class name to matched your class in this file.
+    DmmdAddController.staticInit();
 }, false);

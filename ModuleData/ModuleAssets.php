@@ -47,7 +47,7 @@ class ModuleAssets
 
         return [
             'js' => [
-                // @TODO[dmmd]: write your own assets file name, path, and handle. Also change the handle in your PHP controller.
+                // @TODO[dmmd]: write your own assets file name, path, and handle.
                 // demo management dialog assets.
                 [
                     'handle' => 'dmmdIndex',

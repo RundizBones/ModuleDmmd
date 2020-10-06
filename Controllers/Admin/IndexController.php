@@ -20,9 +20,6 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
     use \Rdb\Modules\RdbAdmin\Controllers\Admin\UI\Traits\CommonDataTrait;
 
 
-    /**
-     * @TODO[dmmd]: change trait name to matched yours.
-     */
     use Traits\DmmdTrait;
 
 
@@ -35,7 +32,7 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
     public function doGetItemAction(string $id): string
     {
         // processing part ----------------------------------------------------------------------------------------------------
-        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['list', 'edit', 'delete']);// @TODO[dmmd]: change module and permissions to your own.
+        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['list', 'edit', 'delete']);// @TODO[dmmd]: change permissions to your own.
 
         if (session_id() === '') {
             session_start();
@@ -92,7 +89,7 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
 
         $output = [];
 
-        // @TODO[dmmd]: write your own db get items. The code below is just for demonstration, please remove on your real project.
+        // @TODO[dmmd]: write your own code to get db items. The code below is just for demonstration, please remove on your real project.
         $DmmdDb = new \Rdb\Modules\DemoManagementDialog\Models\DmmdDb($this->Container);
         $options = [];
         $options['sortOrders'] = $sortOrders;
@@ -126,7 +123,7 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
     public function indexAction(): string
     {
         // processing part ----------------------------------------------------------------------------------------------------
-        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['list', 'add', 'edit', 'delete']);// @TODO[dmmd]: change module and permissions to your own.
+        $this->checkPermission('DemoManagementDialog', 'pageDemoManagementDialog', ['list', 'add', 'edit', 'delete']);// @TODO[dmmd]: change permissions to your own.
 
         if (session_id() === '') {
             session_start();
@@ -167,7 +164,7 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
 
         unset($Csrf);
 
-        $output = array_merge($output, $this->getDmmdUrlsMethod());// @TODO[dmmd]: change method name to matched in your trait.
+        $output = array_merge($output, $this->getDmmdUrlsMethod());
 
         // display, response part ---------------------------------------------------------------------------------------------
         if ($this->Input->isNonHtmlAccept() || $this->Input->isXhr()) {
@@ -189,12 +186,11 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
             $this->setCssAssets($Assets, $rdbAdminAssets);
             $this->setJsAssetsAndObject($Assets, $rdbAdminAssets);
 
-            // @TODO[dmmd]: change the call to asset handle below to matched your handles.
             $Assets->addMultipleAssets('css', ['datatables', 'rdbaCommonListDataPage'], $Assets->mergeAssetsData('css', $moduleAssetsData, $rdbAdminAssets));
             $Assets->addMultipleAssets('js', ['dmmdIndex'], $Assets->mergeAssetsData('js', $moduleAssetsData, $rdbAdminAssets));
             $Assets->addJsObject(
                 'dmmdIndex',
-                'DmmdIndexObject',// @TODO[dmmd]: rename js object here and in everywhere else such as other controllers, views, JS files.
+                'DmmdIndexObject',
                 array_merge([
                     'isInDataTablesPage' => true,
                     'csrfName' => $output['csrfName'],
@@ -203,7 +199,7 @@ class IndexController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseC
                     'txtConfirmDelete' => __('Are you sure to delete?'),
                     'txtPleaseSelectAction' => __('Please select an action.'),
                     'txtPleaseSelectAtLeastOne' => d__('demomanagementdialog', 'Please select at least one item.'),
-                ], $this->getDmmdUrlsMethod())// @TODO[dmmd]: change method name to matched in your trait.
+                ], $this->getDmmdUrlsMethod())
             );
             // END TODO
 

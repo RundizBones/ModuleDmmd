@@ -25,7 +25,7 @@ Example: **Controllers/Admin/Items**, **Views/Admin/Items**, **assets/js/Control
     * Make sure that the URL to your assets (in the `file` array key) are correct.
 * Rename these names.
     * `DemoManagementDialog` (case sensitive, whole word) - The module folder name.<br>
-    This name is this module folder name, rename to match your module folder name with case sensitive and must be **StudlyCaps** to follow PSR [1](psr1), [4](psr4).
+    This name is this module folder name, rename to match your module folder name with case sensitive and must be **StudlyCaps** to follow PSR [1][psr1], [4][psr4].
     * `'demomanagementdialog'` (case sensitive, include single quote) - The translation domain.<br>
     Rename this domain to be only for your module. Make sure that it is unique from other modules. Don't forget to wrap with single quote.
     * `getDmmdUrlsMethod` (case sensitive, whole word) - The method name in trait file.

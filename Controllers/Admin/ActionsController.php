@@ -112,7 +112,6 @@ class ActionsController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBas
         // display, response part ---------------------------------------------------------------------------------------------
         unset($Csrf, $Url);
         return $this->responseAcceptType($output);
-
     }// doDeleteAction
 
 

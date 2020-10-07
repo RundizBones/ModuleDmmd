@@ -126,7 +126,6 @@ class AddController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCon
         // display, response part ---------------------------------------------------------------------------------------------
         unset($Csrf, $Url);
         return $this->responseAcceptType($output);
-
     }// doAddAction
 
 

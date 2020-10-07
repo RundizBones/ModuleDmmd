@@ -23,7 +23,7 @@ Example: **Controllers/Admin/Items**, **Views/Admin/Items**, **assets/js/Control
 * Write your permissions (and maybe menu items) in **ModuleData/ModuleAdmin.php**. If you don't have yours, please see the example from this module.
 * Copy parts of asset handles from **ModuleData/ModuleAssets.php** start from `@TODO[dmmd]` to `END TODO`. If you don't have yours, please see the example from this module.
     * Make sure that the URL to your assets (in the `file` array key) are correct.
-* Rename these names.
+* Rename these names everywhere in your project.
     * `DemoManagementDialog` (case sensitive, whole word) - The module folder name.<br>
     This name is this module folder name, rename to match your module folder name with case sensitive and must be **StudlyCaps** to follow PSR [1][psr1], [4][psr4].
     * `'demomanagementdialog'` (case sensitive, include single quote) - The translation domain.<br>

@@ -121,6 +121,12 @@ class DmmdEditController {
      * @returns {undefined}
      */
     listenFormSubmit() {
+        if (!document.querySelector(this.formIDSelector)) {
+            // if not found target element for the form listening.
+            // do nothing
+            return ;
+        }
+
         let thisClass = this;
 
         document.addEventListener('submit', function(event) {
@@ -241,19 +247,19 @@ class DmmdEditController {
 }// DmmdEditController
 
 
-if (document.readyState !== 'loading') {
-    // if document loaded.
-    // equivalent to jquery document ready.
+document.addEventListener('demomanagementdialog.editing.newinit', function() {
+    // listen on new assets loaded.
+    // this will be working on js loaded via AJAX.
     // must use together with `document.addEventListener('DOMContentLoaded')`
-    // because this condition will be working on js loaded via ajax,
-    // but 'DOMContentLoaded' will be working on load the full page.
     DmmdEditController.staticInit();
-}
+});
 document.addEventListener('DOMContentLoaded', function() {
+    // equivalent to jQuery document ready.
+    // this will be working on normal page load (non AJAX).
     DmmdEditController.staticInit();
 }, false);
-document.addEventListener('demomanagementdialog.editing.init', function() {
-    // manual trigger initialize class.
+document.addEventListener('demomanagementdialog.editing.reinit', function() {
+    // listen on re-open ajax dialog (assets is already loaded before).
     // this is required when... user click edit > save > close dialog > click edit other > now it won't load if there is no this listener.
     let editController = new DmmdEditController();
     // ajax get form data.

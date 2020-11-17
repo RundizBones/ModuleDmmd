@@ -68,7 +68,6 @@ class DmmdIndexController extends RdbaDatatables {
                     },
                     {
                         'data': 'id',
-                        'orderable': false,
                         'targets': 2,
                         'visible': false
                     },
@@ -327,7 +326,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let indexController = new DmmdIndexController();
     let rdbaXhrDialog = new RdbaXhrDialog({
         'dialogIDSelector': '#demomanagementdialog-editing-dialog',
-        'dialogInitEvent': 'demomanagementdialog.editing.init',
+        'dialogNewInitEvent': 'demomanagementdialog.editing.newinit',
+        'dialogReInitEvent': 'demomanagementdialog.editing.reinit',
         'xhrLinksSelector': '.rdba-listpage-addnew, .rdba-listpage-edit'
     });
     indexController.setRdbaXhrDialogObject(rdbaXhrDialog);

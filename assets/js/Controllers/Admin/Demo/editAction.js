@@ -121,12 +121,6 @@ class DmmdEditController {
      * @returns {undefined}
      */
     listenFormSubmit() {
-        if (!document.querySelector(this.formIDSelector)) {
-            // if not found target element for the form listening.
-            // do nothing
-            return ;
-        }
-
         let thisClass = this;
 
         document.addEventListener('submit', function(event) {
@@ -247,21 +241,31 @@ class DmmdEditController {
 }// DmmdEditController
 
 
-document.addEventListener('demomanagementdialog.editing.newinit', function() {
+document.addEventListener('demomanagementdialog.editing.newinit', function(event) {
     // listen on new assets loaded.
     // this will be working on js loaded via AJAX.
     // must use together with `document.addEventListener('DOMContentLoaded')`
-    DmmdEditController.staticInit();
+    if (
+        RdbaCommon.isset(() => event.detail.rdbaUrlNoDomain) && 
+        event.detail.rdbaUrlNoDomain.includes('/edit') !== false
+    ) {
+        DmmdEditController.staticInit();
+    }
 });
 document.addEventListener('DOMContentLoaded', function() {
     // equivalent to jQuery document ready.
     // this will be working on normal page load (non AJAX).
     DmmdEditController.staticInit();
 }, false);
-document.addEventListener('demomanagementdialog.editing.reinit', function() {
+document.addEventListener('demomanagementdialog.editing.reinit', function(event) {
     // listen on re-open ajax dialog (assets is already loaded before).
     // this is required when... user click edit > save > close dialog > click edit other > now it won't load if there is no this listener.
-    let editController = new DmmdEditController();
-    // ajax get form data.
-    editController.ajaxGetFormData();
+    if (
+        RdbaCommon.isset(() => event.detail.rdbaUrlNoDomain) && 
+        event.detail.rdbaUrlNoDomain.includes('/edit') !== false
+    ) {
+        let editController = new DmmdEditController();
+        // ajax get form data.
+        editController.ajaxGetFormData();
+    }
 });

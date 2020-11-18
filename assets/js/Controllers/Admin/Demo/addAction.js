@@ -51,12 +51,6 @@ class DmmdAddController {
      * @returns {undefined}
      */
     listenFormSubmit() {
-        if (!document.querySelector(this.formIDSelector)) {
-            // if not found target element for the form listening.
-            // do nothing
-            return ;
-        }
-
         let thisClass = this;
 
         document.addEventListener('submit', function(event) {
@@ -173,11 +167,16 @@ class DmmdAddController {
 }// DmmdAddController
 
 
-document.addEventListener('demomanagementdialog.editing.newinit', function() {
+document.addEventListener('demomanagementdialog.editing.newinit', function(event) {
     // listen on new assets loaded.
     // this will be working on js loaded via AJAX.
     // must use together with `document.addEventListener('DOMContentLoaded')`
-    DmmdAddController.staticInit();
+    if (
+        RdbaCommon.isset(() => event.detail.rdbaUrlNoDomain) && 
+        event.detail.rdbaUrlNoDomain.includes('/add') !== false
+    ) {
+        DmmdAddController.staticInit();
+    }
 });
 document.addEventListener('DOMContentLoaded', function() {
     // equivalent to jQuery document ready.

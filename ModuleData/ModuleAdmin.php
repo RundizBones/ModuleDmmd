@@ -123,7 +123,7 @@ class ModuleAdmin implements \Rdb\Modules\RdbAdmin\Interfaces\ModuleAdmin
             5 => [
                 'id' => 'demomanagementdialog-home',
                 'permission' => [],
-                'icon' => 'fas fa-table fa-fw',
+                'icon' => 'fa-solid fa-table fa-fw',
                 'name' => d__('demomanagementdialog', 'Management demo'),
                 'link' => $urlBaseWithLang . '/admin/dmmd',
                 'linksCurrent' => [

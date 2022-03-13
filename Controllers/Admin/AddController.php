@@ -61,7 +61,7 @@ class AddController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCon
             // if validated token to prevent CSRF.
             // prepare data for checking.
             $data = [];
-            $data['title'] = trim($this->Input->post('title', '', FILTER_SANITIZE_STRING));
+            $data['title'] = trim(strip_tags($this->Input->post('title', '')));
             if (empty($data['title'])) {
                 $data['title'] = null;
             }

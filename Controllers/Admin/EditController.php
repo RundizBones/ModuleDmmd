@@ -63,7 +63,7 @@ class EditController extends \Rdb\Modules\RdbAdmin\Controllers\Admin\AdminBaseCo
 
             // prepare data for checking.
             $data = [];
-            $data['title'] = trim($this->Input->patch('title', '', FILTER_SANITIZE_STRING));
+            $data['title'] = trim(strip_tags($this->Input->patch('title', '')));
             if (empty($data['title'])) {
                 $data['title'] = null;
             }

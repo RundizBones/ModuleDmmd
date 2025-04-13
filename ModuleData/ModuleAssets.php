@@ -52,7 +52,7 @@ class ModuleAssets
                 [
                     'handle' => 'dmmdIndex',
                     'file' => $publicModuleUrl . '/assets/js/Controllers/Admin/Demo/indexAction.js',
-                    'dependency' => ['rdta', 'rdbaDatatables', 'rdbaXhrDialog', 'datatables-plugins-pagination', 'rdbaCommon', 'rdbaUiXhrCommonData'],
+                    'dependency' => ['rdta', 'rdbaDatatables', 'rdbaXhrDialog', 'datatables-features-inputpaging', 'rdbaCommon', 'rdbaUiXhrCommonData'],
                 ],
                 [
                     'handle' => 'dmmdAdd',
